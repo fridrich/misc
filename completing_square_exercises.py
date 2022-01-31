@@ -16,12 +16,7 @@
 import random
 import fractions
 import math
-
-# resultats should be whole numbers or fractions?
-wholeNumbers = False
-
-# number of exercises to generate
-numExercises = 20
+import argparse
 
 # compute lowest common multiple of two numbers
 def lcm(x, y):
@@ -37,6 +32,15 @@ def lcm(x, y):
 
    return lcm
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--fractions", action="store_true", dest="fractions",
+                    help="Resultats should be whole numbers or fractions?")
+parser.add_argument("-n", "--number-exercises", dest="numex", type=int, default=20,
+                    help="Number of exercises to generate", metavar='N')
+args = parser.parse_args()
+
+wholeNumbers = not(args.fractions);
+numExercises = args.numex
 
 i = 0
 while (i < numExercises):
