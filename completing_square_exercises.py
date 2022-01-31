@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -5,26 +7,36 @@
 # A script to generate exercises to train oneself in factoring
 # using the completing the square method
 
+# Usage:
+#   python3 completing_square_exercises.py >tmp.txt
+#   grep -v Result tmp.txt > exercises.txt
+#   grep Result tmp.txt | sed "s#\t\tResult:##g" > results.txt
+#   rm tmp.txt
+
 import random
 import fractions
 import math
 
+# resultats should be whole numbers or fractions?
 wholeNumbers = False
+
+# number of exercises to generate
 numExercises = 20
 
+# compute lowest common multiple of two numbers
 def lcm(x, y):
    if x > y:
        greater = x
    else:
        greater = y
-
    while(True):
-       if ((greater % x == 0) and (greater % y == 0)):
+       if (not(greater % x) and not(greater % y)):
            lcm = greater
            break
        greater += 1
 
    return lcm
+
 
 i = 0
 while (i < numExercises):
