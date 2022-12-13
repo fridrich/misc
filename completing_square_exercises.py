@@ -8,10 +8,7 @@
 # using the completing the square method
 
 # Usage:
-#   python3 completing_square_exercises.py >tmp.txt
-#   grep -v Result tmp.txt > exercises.txt
-#   grep Result tmp.txt | sed "s#\t\tResult:##g" > results.txt
-#   rm tmp.txt
+#   python3 completing_square_exercises.py >exercises.txt
 
 import random
 import fractions
