@@ -73,7 +73,7 @@ while (i < numExercises):
     if (exercise.x2.denominator == 1 and not(wholeNumbers)):
         continue
     if (wholeNumbers):
-        exercise.a = random.randint(1,10)
+        exercise.a = fractions.Fraction(random.randint(1,10), 1)
     else:
         exercise.a = lcm(exercise.x1.denominator, exercise.x2.denominator)
     # We want slightly less negative numbers
